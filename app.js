@@ -153,7 +153,9 @@ function tileGeometry() {
     const b = (ring + 1) * count;
     for (let i = 0; i < count; i++) {
       const n = (i + 1) % count;
-      indices.push(a + i, b + i, b + n, a + i, b + n, a + n);
+      // Rings are counter-clockwise when viewed from above. Keep the side
+      // faces outward-facing so the body is a consistently wound solid.
+      indices.push(a + i, b + n, b + i, a + i, a + n, b + n);
     }
   }
   const bottomCenter = vertices.length / 3;
