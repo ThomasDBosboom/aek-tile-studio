@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Design and download modular icon tiles for the Apple Extended Keyboard II.">
+  <title>AEK Tile Studio</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <nav class="menu-bar" aria-label="Application menu">
+    <span class="menu-mark" aria-hidden="true">⌘</span>
+    <strong>AEK Tile Studio</strong>
+    <span>File</span><span>Edit</span><span>Layout</span><span>Help</span>
+    <time id="menu-clock">9:41 AM</time>
+  </nav>
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">A small accessory for a very good keyboard</p>
+      <h1>AEK Tile Studio</h1>
+      <p class="lede">Arrange two layers of glanceable function-key legends, then generate print-ready modular tiles in your browser.</p>
+    </div>
+    <div class="badge" aria-label="Version 0.1">About<br>Rev 0.1</div>
+  </header>
+
+  <main>
+    <section class="studio" aria-labelledby="studio-title">
+      <div class="panel layout-panel mac-window">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">01 · Layout</p>
+            <h2 id="studio-title">Choose a tile position</h2>
+          </div>
+          <button id="reset-layout" class="text-button">Reset default</button>
+        </div>
+        <div id="keyboard-layout" class="keyboard-layout" aria-label="Function key tile layout"></div>
+        <div class="selected-summary">
+          <span class="indicator" aria-hidden="true"></span>
+          Editing <strong id="selected-position">Bottom F5</strong>
+        </div>
+      </div>
+
+      <div class="panel symbol-panel mac-window">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">02 · Symbol</p>
+            <h2>Pick its function</h2>
+          </div>
+        </div>
+        <div id="icon-picker" class="icon-picker"></div>
+        <label class="upload-control">
+          <span>Or use your own filled SVG</span>
+          <input id="svg-upload" type="file" accept="image/svg+xml,.svg">
+        </label>
+      </div>
+
+      <div class="panel preview-panel mac-window">
+        <div class="section-heading compact">
+          <div>
+            <p class="kicker">03 · Print</p>
+            <h2>Inspect and export</h2>
+          </div>
+          <span id="render-status" class="status">Ready</span>
+        </div>
+        <div id="preview" class="preview" aria-label="Interactive 3D tile preview"></div>
+        <div class="controls">
+          <label>Relief <output id="relief-value">0.40 mm</output>
+            <input id="relief" type="range" min="0.25" max="0.60" step="0.05" value="0.40">
+          </label>
+          <label>Symbol scale <output id="scale-value">100%</output>
+            <input id="symbol-scale" type="range" min="70" max="115" step="5" value="100">
+          </label>
+        </div>
+        <div class="actions">
+          <button id="download-tile" class="primary">Download selected tile STL</button>
+          <button id="download-plate">Download full 32-tile plate</button>
+          <button id="download-config">Save configuration</button>
+          <label class="button-like">Load configuration<input id="config-upload" type="file" accept="application/json,.json"></label>
+        </div>
+        <p class="fine-print">Geometry: 17.4 × 10.2 × 1.7 mm, rev10 medium fit, 0.25 mm top chamfer. Generated locally; nothing is uploaded.</p>
+      </div>
+    </section>
+
+    <section class="downloads" aria-labelledby="downloads-title">
+      <div>
+        <p class="kicker">Proven hardware</p>
+        <h2 id="downloads-title">The two-frame system</h2>
+        <p>The frame geometry is static and compiled from the fit-tested rev10 OpenSCAD model. Print the left and right frames once; regenerate only the legends when your mappings change.</p>
+      </div>
+      <div class="download-cards">
+        <a href="assets/frames/AEK_left_ESC_F1-F8_frame_rev10.stl" download>
+          <span class="file-type">STL</span><strong>Left frame</strong><small>ESC through F8</small>
+        </a>
+        <a href="assets/frames/AEK_right_F9-F15_lights_layer_frame_rev10.stl" download>
+          <span class="file-type">STL</span><strong>Right frame</strong><small>F9 through Layer</small>
+        </a>
+        <a href="assets/frames/AEK_complete_two_frame_system_rev10.scad" download>
+          <span class="file-type">SCAD</span><strong>Parametric source</strong><small>Rev10 master model</small>
+        </a>
+      </div>
+    </section>
+
+    <section class="notes">
+      <div><strong>Printer starting point</strong><span>0.10 mm layers · white PLA · no supports</span></div>
+      <div><strong>Finish</strong><span>Skim raised faces with a paint marker after printing</span></div>
+      <div><strong>Compatibility</strong><span>Designed around the Apple Extended Keyboard II</span></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>An independent hobby project. Apple and SF Symbols are trademarks or property of Apple Inc.; no affiliation is implied.</p>
+  </footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
