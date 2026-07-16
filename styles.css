@@ -51,6 +51,20 @@ h2 { margin: 0; font-size: 1.45rem; letter-spacing: -.03em; }
 .badge { flex: 0 0 auto; border: 1px solid var(--ink); border-radius: 100%; padding: 22px 14px; font: 700 .75rem/1 ui-monospace, monospace; transform: rotate(7deg); }
 
 main { padding: 34px 0 70px; }
+.project-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr);
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 34px 22px 22px;
+}
+.project-hero figure { margin: 0; }
+.project-hero img { display: block; width: 100%; border: 2px inset #bcbcbc; background: #eee; }
+.project-hero figcaption { margin-top: 7px; color: var(--muted); font-size: .66rem; }
+.project-story h2 { max-width: 440px; font-size: clamp(1.65rem, 3vw, 2.7rem); line-height: 1.05; }
+.project-story p:not(.kicker) { color: #333; font-size: .9rem; line-height: 1.55; }
+.project-story a { color: inherit; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 2px; }
 .studio { display: grid; grid-template-columns: minmax(390px, .78fr) minmax(520px, 1.22fr); gap: 16px; }
 .layout-panel { grid-column: 1 / -1; }
 .panel { background: color-mix(in srgb, var(--panel) 93%, transparent); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 12px 30px var(--shadow); padding: 22px; }
@@ -283,6 +297,7 @@ footer { color: #eee; text-shadow: 1px 1px #333; }
   .masthead { padding-top: 34px; }
   .badge { display: none; }
   .studio, .downloads { grid-template-columns: 1fr; }
+  .project-hero { grid-template-columns: 1fr; padding: 32px 14px 16px; }
   .layout-panel, .symbol-panel, .preview-panel { grid-column: auto; }
   .panel { padding: 17px; }
   .download-cards, .notes { grid-template-columns: 1fr; }
