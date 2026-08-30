@@ -3,7 +3,12 @@
 A static, client-side prototype for arranging and generating modular legend
 tiles for the Apple Extended Keyboard II.
 
-## Local preview
+##public page
+
+https://thomasdbosboom.github.io/aek-tile-studio/
+
+
+## Run your own - Local preview
 
 Run a static HTTP server from this directory; ES modules and SVG loading do
 not work reliably through `file://` URLs.
